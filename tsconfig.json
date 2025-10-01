@@ -15,27 +15,27 @@
     "module": "nodenext",
     // "ignoreDeprecations": "6.0",
     "moduleResolution": "nodenext",
-    "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": false,
+    "strict": true,
+    "esModuleInterop": true,
     "noEmitOnError": false,
     "sourceMap": true,
     "verbatimModuleSyntax": false,
     "strictNullChecks": true,
     "noUnusedParameters": false,
     "isolatedModules": true,
-    "declaration": true,
     "declarationMap": true,
+    "declaration": true,
     "emitDeclarationOnly": true,
     "allowJs": true,
     "noEmit": false,
     // "importHelpers": true,
-    // "rootDir": "src",
+    "rootDir": "./src",
     "outDir": "dist",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@config/*": [
         "src/config/*"
@@ -47,14 +47,14 @@
         "src/middlewares/*"
       ],
       "@interfaces/*": [
-        "interfaces/*"
+        "src/interfaces/*"
       ]
     },
   },
   "include": [
     ".env",
     "src/**/*",
-    "interfaces/**/*"
+    "src/interfaces/**/*"
   ],
   "exclude": [
     "node_modules",
