@@ -1,9 +1,39 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "rootDir": "src",
+    "composite": true,
+    "target": "esnext",
+    "jsx": "preserve",
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "ESNext.AsyncIterable"
+    ],
+    "module": "nodenext",
+    // "ignoreDeprecations": "6.0",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noEmitOnError": false,
+    "sourceMap": true,
+    "verbatimModuleSyntax": false,
+    "strictNullChecks": true,
+    "noUnusedParameters": false,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "allowJs": true,
+    "noEmit": false,
+    // "importHelpers": true,
+    // "rootDir": "src",
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
@@ -20,18 +50,16 @@
         "interfaces/*"
       ]
     },
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": false,
-    "noEmitOnError": false,
-    "sourceMap": true,
-    "verbatimModuleSyntax": false
   },
   "include": [
+    ".env",
     "src/**/*",
     "interfaces/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/http",
+    "src/logs",
+    "test/*.ts"
   ]
 }

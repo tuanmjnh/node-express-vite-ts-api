@@ -1,18 +1,23 @@
 {
   "name": "node-express-ts-api",
   "version": "1.0.0",
-  "type": "module",
+  "description": "TypeScript + Express API Server",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
-    "build": "tsc",
-    "start": "node dist/main.js"
+    "build": "swc src -d dist --source-maps --copy-files && npm run copy-files && npm run copy-package",
+    "build:tsc": "tsc && tsc-alias",
+    "start": "node dist/src/main.js",
+    "copy-files": "@powershell copy README.md ./dist && @powershell copy .env ./dist && @powershell copy deploy/* ./dist",
+    "copy-package": "node scripts/prepare-package.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.3",
     "cloudinary": "^2.5.0",
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "joi": "^17.9.2",
@@ -22,6 +27,8 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.5",
     "@types/bcrypt": "^6.0.0",
     "@types/compression": "^1.8.1",
     "@types/cors": "^2.8.19",
@@ -30,10 +37,10 @@
     "@types/mongoose": "^5.11.97",
     "@types/multer": "^1.4.7",
     "@types/node": "^22.18.8",
-    "cross-env": "^10.1.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.8.3"
   }
 }

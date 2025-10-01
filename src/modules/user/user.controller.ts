@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { UserModel } from './user.model.js';
-import { uploadToCloudinary } from '@modules/upload/upload.service.js';
+import { UserModel } from './user.model';
+import { uploadToCloudinary } from '@modules/upload/upload.service';
 import path from 'path';
 
 export const UserController = {

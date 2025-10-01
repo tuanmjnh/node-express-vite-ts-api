@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UserModel } from '@modules/user/user.model.js';
+import { UserModel } from '@modules/user/user.model';
 const JWT_SECRET = process.env.JWT_SECRET ?? 'changeme';
 const JWT_EXPIRES = '1d';
 

@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { UserController } from './user.controller.js';
-import { verifyToken } from '../../middlewares/authMiddleware.js';
-import { uploadTemp } from '@modules/upload/upload.config.js';
+import { UserController } from './user.controller';
+import { verifyToken } from '../../middlewares/authMiddleware';
+import { uploadTemp } from '@modules/upload/upload.config';
 
 const router = Router();
 

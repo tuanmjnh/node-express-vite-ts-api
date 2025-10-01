@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { GroupController } from './group.controller.js';
-import { verifyToken } from '../../middlewares/authMiddleware.js';
+import { GroupController } from './group.controller';
+import { verifyToken } from '../../middlewares/authMiddleware';
 
 const router = Router();
 

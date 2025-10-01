@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { RoleModel } from './role.model.js';
+import { RoleModel } from './role.model';
 
 export const RoleController = {
   async list(_req: Request, res: Response) {

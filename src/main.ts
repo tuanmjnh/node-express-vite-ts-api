@@ -1,23 +1,17 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import app from './app';
+import { dotenvConfig } from '@config/dotenv';
+// import { connectDB } from '@config/database';
+// import { seedDatabase } from '@config/seed';
 
-import express from 'express';
-import compression from 'compression';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import { connectDB } from '@config/database';
-import { seedDatabase } from '@config/seed';
+const PORT = Number(process.env.PORT ?? 3000);
 
-const app = express();
-app.use(cors());
-app.use(compression());
-app.use(bodyParser.json());
-
-connectDB().then(async () => {
-  await seedDatabase();
-});
-
-app.get('/', (_req, res) => res.send('Server is running 🚀'));
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ API running on port ${PORT}`));
+(async () => {
+  await dotenvConfig();
+  // await connectDB();
+  // await seedDatabase();
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`)
+    console.log(`Mode: ${process.env.NODE_ENV}`)
+    console.log(`Base URL: ${process.env.BASE_URL}`)
+  });
+})();

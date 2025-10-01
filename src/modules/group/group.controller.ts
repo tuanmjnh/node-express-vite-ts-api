@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { GroupModel } from './group.model.js';
+import { GroupModel } from './group.model';
 
 export const GroupController = {
   async list(_req: Request, res: Response) {

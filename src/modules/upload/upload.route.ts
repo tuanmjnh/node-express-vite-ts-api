@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { uploadTemp } from './upload.config.js';
-import { uploadToCloudinary } from './upload.service.js';
-import { verifyToken } from '../../middlewares/authMiddleware.js';
+import { uploadTemp } from './upload.config';
+import { uploadToCloudinary } from './upload.service';
+import { verifyToken } from '../../middlewares/authMiddleware';
 import path from 'path';
 
 const router = Router();
