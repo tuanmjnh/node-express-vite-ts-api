@@ -1,8 +1,7 @@
 export { };
 declare global {
   namespace Models {
-    interface IGroup {
-      _id?: string;
+    interface Group {
       type: string;
       code: string;
       title: string;
@@ -11,6 +10,9 @@ declare global {
       color?: string;
       flag?: number;
       created?: ICreated;
+    }
+    interface IGroup extends Group {
+      _id?: string;
     }
   }
 }

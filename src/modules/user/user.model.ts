@@ -1,7 +1,7 @@
 import { Document, Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
-export interface TypesDocument extends Models.User, Document { }
+export interface UserDocument extends Models.User, Document { }
 const fileSchema = new Schema<Models.IFileAttach>({
   public_id: String,
   url: { type: String, required: true },
@@ -10,7 +10,7 @@ const fileSchema = new Schema<Models.IFileAttach>({
   created_at: { type: Number, default: () => Date.now() }
 }, { _id: false });
 
-const userSchema: Schema<TypesDocument> = new Schema<TypesDocument>({
+const userSchema = new Schema<UserDocument>({
   account: { type: String, required: true, unique: true },
   password: { type: String, required: true, select: false },
   salt: { type: String, select: false },
@@ -34,5 +34,5 @@ userSchema.pre('save', async function (next) {
   user.password = await bcrypt.hash(user.password, salt);
   next();
 });
-export const UserModel = model<TypesDocument>('User', userSchema);
+export const UserModel = model<UserDocument>('User', userSchema);
 

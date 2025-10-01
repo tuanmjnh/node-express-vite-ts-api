@@ -1,8 +1,7 @@
 export { };
 declare global {
   namespace Models {
-    interface IRole {
-      _id?: string;
+    interface Role {
       key: string;
       name: string;
       desc?: string;
@@ -11,6 +10,9 @@ declare global {
       routes?: string[];
       flag?: number;
       created?: ICreated;
+    }
+    interface IRole extends Role {
+      _id?: string;
     }
   }
 }

@@ -1,6 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
 
-const roleSchema = new Schema({
+export interface RoleDocument extends Models.Role, Document { }
+const roleSchema = new Schema<RoleDocument>({
   key: { type: String, required: true, unique: true },
   name: { type: String, required: true },
   desc: String,
@@ -11,5 +12,5 @@ const roleSchema = new Schema({
   created: { type: Object, default: { at: Date.now(), by: 'system', ip: '' } }
 });
 
-export const RoleModel = model('Role', roleSchema);
+export const RoleModel = model<RoleDocument>('Role', roleSchema);
 

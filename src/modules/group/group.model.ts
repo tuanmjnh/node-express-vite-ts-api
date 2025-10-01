@@ -1,6 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
 
-const groupSchema = new Schema({
+export interface GroupDocument extends Models.Group, Document { }
+const groupSchema = new Schema<GroupDocument>({
   type: { type: String, required: true },
   code: { type: String, required: true, uppercase: true },
   title: { type: String, required: true },
@@ -11,5 +12,5 @@ const groupSchema = new Schema({
   created: { type: Object, default: { at: Date.now(), by: 'system', ip: '' } }
 });
 
-export const GroupModel = model('Group', groupSchema);
+export const GroupModel = model<GroupDocument>('Group', groupSchema);
 
